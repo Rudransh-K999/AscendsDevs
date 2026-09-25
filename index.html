@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>AscendDevs — Digital Agency & Services</title>
+<meta name="description" content="AscendDevs is a professional digital agency providing web development, graphic design, custom Discord bots, Discord setup, Minecraft, Roblox, sponsorship, and custom digital services.">
+<meta name="theme-color" content="#0a0f13">
+
+<meta property="og:title" content="AscendDevs — Digital Agency & Services">
+<meta property="og:description" content="Digital solutions for creators, communities, businesses, and ideas worth building.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/images/hero-visual.png">
+
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/favicon-180.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Loader -->
+<div class="loader" id="loader" aria-hidden="true">
+  <span class="loader__mark">AscendDevs</span>
+</div>
+
+<div class="cursor" id="cursor" aria-hidden="true">
+  <span class="cursor__dot"></span>
+  <span class="cursor__ring"></span>
+</div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#top" class="nav__brand" aria-label="AscendDevs home">
+      <img src="assets/logo/logo-icon-transparent.png" alt="" class="nav__mark" width="28" height="28">
+      <span>AscendDevs</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <a href="https://discord.gg/WDzhZU5xwJ" class="nav__cta" target="_blank" rel="noopener">
+      Let's Talk <span class="arrow">↗</span>
+    </a>
+
+    <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <nav aria-label="Mobile">
+    <a href="#work">Work</a>
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#about">About</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" class="mobile-menu__cta">Join Discord ↗</a>
+  </nav>
+</div>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="hero__field" aria-hidden="true">
+      <img src="assets/images/hero-visual.png" alt="" class="hero__visual">
+      <div class="hero__grid"></div>
+      <canvas id="heroCanvas" class="hero__canvas"></canvas>
+    </div>
+
+    <div class="hero__content">
+      <p class="reveal-line hero__label">AscendDevs — Digital Agency</p>
+      <h1 class="hero__headline">
+        <span class="reveal-line">Build.</span>
+        <span class="reveal-line">Create.</span>
+        <span class="reveal-line">Ascend.</span>
+      </h1>
+      <p class="reveal-line hero__sub">Digital solutions for creators, communities, businesses, and ideas worth building.</p>
+
+      <div class="reveal-line hero__actions">
+        <a href="#services" class="btn btn--primary">Explore Services <span class="arrow arrow--down">↓</span></a>
+        <a href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" class="btn btn--ghost">Join Discord <span class="arrow">↗</span></a>
+      </div>
+    </div>
+
+    <div class="hero__scroll" aria-hidden="true">
+      <span></span>
+    </div>
+  </section>
+
+  <!-- ============ INTRO ============ -->
+  <section class="intro">
+    <div class="intro__inner">
+      <p class="eyebrow reveal">What we do</p>
+      <h2 class="intro__statement reveal">We turn ideas into digital experiences.</h2>
+      <p class="intro__body reveal">AscendDevs brings development, design, community infrastructure, gaming services, and custom digital solutions together under one roof.</p>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="services" id="services">
+    <div class="section-head">
+      <p class="eyebrow reveal">01 — Services</p>
+      <h2 class="reveal">Everything you need to build, launch and grow.</h2>
+    </div>
+
+    <div class="service-list">
+
+      <a class="service-row reveal" href="#discord-cta">
+        <span class="service-row__num">01</span>
+        <span class="service-row__name">Web Development</span>
+        <span class="service-row__desc">Custom websites and digital experiences built around your requirements.</span>
+        <span class="service-row__arrow">↗</span>
+      </a>
+
+      <a class="service-row reveal" href="#discord-cta">
+        <span class="service-row__num">02</span>
+        <span class="service-row__name">Graphic Design</span>
+        <span class="service-row__desc">Logos, banners, thumbnails, promotional graphics, and branding.</span>
+        <span class="service-row__arrow">↗</span>
+      </a>
+
+      <a class="service-row reveal" href="#discord-cta">
+        <span class="service-row__num">03</span>
+        <span class="service-row__name">Custom Discord Bots</span>
+        <span class="service-row__desc">Bots, automation, commands, integrations, and server functionality.</span>
+        <span class="service-row__arrow">↗</span>
+      </a>
+
+      <a class="service-row reveal" href="#discord-cta">
+        <span class="service-row__num">04</span>
+        <span class="service-row__name">Discord Server Setup</span>
+        <span class="service-row__desc">Structure, channels, roles, permissions, bots, and configuration.</span>
+        <span class="service-row__arrow">↗</span>
+      </a>
+
+      <a class="service-row reveal" href="#discord-cta">
+        <span class="service-row__num">05</span>
+        <span class="service-row__name">Minecraft Services</span>
+        <span class="service-row__desc">Development, configuration, customization, and server-related work.</span>
+        <span class="service-row__arrow">↗</span>
+      </a>
+
+      <a class="service-row reveal" href="#discord-cta">
+        <span class="service-row__num">06</span>
+        <span class="service-row__name">Roblox Services</span>
+        <span class="service-row__desc">Afk Grinding, Resource Grinding, and Game Progression.</span>
+        <span class="service-row__arrow">↗</span>
+      </a>
+
+      <a class="service-row reveal" href="#discord-cta">
+        <span class="service-row__num">07</span>
+        <span class="service-row__name">Sponsorships &amp; Partnerships</span>
+        <span class="service-row__desc">Business collaborations and sponsorship opportunities.</span>
+        <span class="service-row__arrow">↗</span>
+      </a>
+
+      <a class="service-row reveal" href="#discord-cta">
+        <span class="service-row__num">08</span>
+        <span class="service-row__name">Custom Requests</span>
+        <span class="service-row__desc">Specialized projects and solutions outside the standard categories.</span>
+        <span class="service-row__arrow">↗</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ============ CAPABILITIES ============ -->
+  <section class="capabilities">
+    <div class="capabilities__inner">
+      <h2 class="reveal">One agency.<br>Multiple disciplines.</h2>
+      <ul class="capabilities__list">
+        <li class="reveal">Development</li>
+        <li class="reveal">Design</li>
+        <li class="reveal">Discord</li>
+        <li class="reveal">Gaming</li>
+        <li class="reveal">Automation</li>
+        <li class="reveal">Custom Solutions</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ SELECTED WORK ============ -->
+  <section class="work" id="work">
+    <div class="section-head">
+      <p class="eyebrow reveal">02 — Selected work</p>
+      <h2 class="reveal">Built for different ideas.</h2>
+      <p class="section-head__note reveal">Placeholder projects — structured so real AscendDevs work can replace them.</p>
+    </div>
+
+    <div class="work-grid">
+      <a class="work-item work-item--a reveal" href="#discord-cta">
+        <div class="work-item__frame">
+          <div class="work-item__frame">
+       <img
+          src="assets/images/project-1.png"
+          alt="Discord Infrastructure"
+          class="work-item__image"
+  >
+      </div>
+        </div>
+        <div class="work-item__meta">
+          <h3>Project One</h3>
+          <span>Web Development</span>
+        </div>
+      </a>
+
+      <a class="work-item work-item--b reveal" href="#discord-cta">
+        <div class="work-item__frame">
+          <div class="work-item__frame">
+      <img
+         src="assets/images/project-2.png"
+         alt="Discord Infrastructure"
+         class="work-item__image"
+  >
+      </div>
+        </div>
+        <div class="work-item__meta">
+          <h3>Project Two</h3>
+          <span>Discord Infrastructure</span>
+        </div>
+      </a>
+
+      <a class="work-item work-item--c reveal" href="#discord-cta">
+        <div class="work-item__frame">
+          <div class="work-item__frame">
+      <img
+         src="assets/images/project-3.png"
+         alt="Discord Infrastructure"
+        class="work-item__image"
+  >
+     </div>
+        </div>
+        <div class="work-item__meta">
+          <h3>Project Three</h3>
+          <span>Thumbnails</span>
+        </div>
+      </a>
+
+      <a class="work-item work-item--d reveal" href="#discord-cta">
+        <div class="work-item__frame">
+          <div class="work-item__placeholder" data-tone="4"></div>
+        </div>
+        <div class="work-item__meta">
+          <h3>Project Four</h3>
+          <span>Custom Development</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ PROCESS ============ -->
+  <section class="process" id="process">
+    <div class="section-head">
+      <p class="eyebrow reveal">03 — Process</p>
+      <h2 class="reveal">Simple process. Serious execution.</h2>
+    </div>
+
+    <div class="process-list">
+      <div class="process-step reveal">
+        <span class="process-step__num">01</span>
+        <h3>Discover</h3>
+        <p>Tell us what you're building and what you need.</p>
+      </div>
+      <div class="process-step reveal">
+        <span class="process-step__num">02</span>
+        <h3>Plan</h3>
+        <p>We discuss requirements, scope, timeline, and approach.</p>
+      </div>
+      <div class="process-step reveal">
+        <span class="process-step__num">03</span>
+        <h3>Build</h3>
+        <p>We design, develop, configure, or customize the project.</p>
+      </div>
+      <div class="process-step reveal">
+        <span class="process-step__num">04</span>
+        <h3>Deliver</h3>
+        <p>We review the final work and deliver the completed project.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about" id="about">
+    <div class="about__inner">
+      <div class="about__text">
+        <p class="eyebrow reveal">04 — About AscendDevs</p>
+        <h2 class="reveal">Built by two.<br>Driven by ideas.</h2>
+        <p class="reveal">AscendDevs is a two-person digital agency focused on turning ideas into practical digital solutions. We combine development, design, community infrastructure, gaming services, and creative problem-solving to help people build better digital projects.</p>
+      </div>
+      <div class="about__figure reveal">
+        <span class="about__figure-num">02</span>
+        <div class="about__orbit" aria-label="AscendDevs team"></div>
+        <span class="about__figure-label">People</span>
+      </div>
+    </div>
+
+    <!-- Principles -->
+    <div class="principles">
+      <h3 class="reveal">Built around your requirements.</h3>
+      <div class="principles__grid">
+        <div class="principle reveal">
+          <h4>Direct</h4>
+          <p>Clear communication without unnecessary layers.</p>
+        </div>
+        <div class="principle reveal">
+          <h4>Flexible</h4>
+          <p>Services adapt to the project instead of forcing every project into a package.</p>
+        </div>
+        <div class="principle reveal">
+          <h4>Multidisciplinary</h4>
+          <p>Development, design, Discord, gaming, and custom digital work.</p>
+        </div>
+        <div class="principle reveal">
+          <h4>Practical</h4>
+          <p>Focused on building something useful rather than adding unnecessary complexity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CUSTOMER FEEDBACK ============ -->
+  <section class="feedback" id="feedback">
+    <div class="section-head">
+      <p class="eyebrow reveal">05 — Customer Feedback</p>
+      <h2 class="reveal">What our customers say.</h2>
+      <p class="section-head__note reveal">Placeholder reviews — edit <code>js/reviews.js</code> to add real ones.</p>
+    </div>
+
+    <div class="feedback__viewport" aria-label="Customer reviews">
+      <div class="feedback__lane" data-lane="1"></div>
+      <div class="feedback__lane" data-lane="2"></div>
+    </div>
+  </section>
+
+  <!-- ============ DISCORD CTA ============ -->
+  <section class="discord-cta" id="discord-cta">
+    <div class="discord-cta__glow" aria-hidden="true"></div>
+    <div class="discord-cta__inner">
+      <h2 class="reveal">Let's build something.</h2>
+      <p class="reveal">Have an idea, need a service, or want to discuss a project? Join the AscendDevs Discord and talk directly with the team.</p>
+      <a href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" class="btn btn--primary reveal">
+        Join AscendDevs <span class="arrow">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq" id="faq">
+    <div class="section-head">
+      <p class="eyebrow reveal">06 — FAQ</p>
+      <h2 class="reveal">Questions, answered.</h2>
+    </div>
+
+    <div class="accordion reveal">
+      <div class="accordion__item">
+        <button class="accordion__trigger" aria-expanded="false">
+          <span>What services does AscendDevs offer?</span>
+          <span class="accordion__icon">+</span>
+        </button>
+        <div class="accordion__panel">
+          <p>Development, design, Discord services, Minecraft, Roblox, sponsorships/partnerships, and custom requests.</p>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__trigger" aria-expanded="false">
+          <span>How do I request a service?</span>
+          <span class="accordion__icon">+</span>
+        </button>
+        <div class="accordion__panel">
+          <p>Join the AscendDevs Discord and discuss your requirements with the team.</p>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__trigger" aria-expanded="false">
+          <span>Can I request a custom project?</span>
+          <span class="accordion__icon">+</span>
+        </button>
+        <div class="accordion__panel">
+          <p>Yes. Custom requests can be discussed with the team.</p>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__trigger" aria-expanded="false">
+          <span>Who can work with AscendDevs?</span>
+          <span class="accordion__icon">+</span>
+        </button>
+        <div class="accordion__panel">
+          <p>Creators, communities, businesses, developers, individuals, and gaming projects.</p>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__trigger" aria-expanded="false">
+          <span>How do I contact the team?</span>
+          <span class="accordion__icon">+</span>
+        </button>
+        <div class="accordion__panel">
+          <p>Through the official AscendDevs Discord server.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="final-cta">
+    <div class="final-cta__inner">
+      <p class="eyebrow reveal">Start something</p>
+      <h2 class="reveal">Your idea deserves<br>a place to ascend.</h2>
+      <p class="final-cta__sub reveal">Let's build it.</p>
+      <a href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" class="btn btn--primary reveal">
+        Join Discord <span class="arrow">↗</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer__top">
+    <a href="#top" class="footer__brand">
+      <img src="assets/logo/logo-icon-transparent.png" alt="AscendDevs" width="32" height="32">
+      <span>AscendDevs</span>
+    </a>
+    <p>Digital agency &amp; services for ideas worth building.</p>
+  </div>
+
+  <nav class="footer__nav" aria-label="Footer">
+    <a href="#work">Work</a>
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#about">About</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+
+  <a class="footer__discord" href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener">Join Discord ↗</a>
+
+  <div class="footer__bottom">
+    <span>© 2026 AscendDevs. All rights reserved.</span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/reviews.js"></script>
+<script src="js/team.js"></script>
+</body>
+</html>
