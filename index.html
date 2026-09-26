@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>AscendDevs — Digital Agency & Services</title>
+<title>AscendDevs — Digital Agency &amp; Services</title>
 <meta name="description" content="AscendDevs is a professional digital agency providing web development, graphic design, custom Discord bots, Discord setup, Minecraft, Roblox, sponsorship, and custom digital services.">
 <meta name="theme-color" content="#0a0f13">
 
-<meta property="og:title" content="AscendDevs — Digital Agency & Services">
+<meta property="og:title" content="AscendDevs — Digital Agency &amp; Services">
 <meta property="og:description" content="Digital solutions for creators, communities, businesses, and ideas worth building.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="assets/images/hero-visual.png">
@@ -24,14 +24,29 @@
 </head>
 <body>
 
-<!-- Loader -->
+<!-- ============ LOADER ============ -->
 <div class="loader" id="loader" aria-hidden="true">
-  <span class="loader__mark">AscendDevs</span>
+  <div class="loader__bars"><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="loader__center">
+    <span class="loader__mark">AscendDevs</span>
+    <span class="loader__count" id="loaderCount">0</span>
+  </div>
+  <div class="loader__rail"><i id="loaderRail"></i></div>
 </div>
 
+<!-- Film grain -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Cursor -->
 <div class="cursor" id="cursor" aria-hidden="true">
   <span class="cursor__dot"></span>
-  <span class="cursor__ring"></span>
+  <span class="cursor__ring"><b class="cursor__label" id="cursorLabel"></b></span>
+</div>
+
+<!-- Floating hover preview for service rows -->
+<div class="peek" id="peek" aria-hidden="true">
+  <span class="peek__tone"></span>
+  <span class="peek__title"></span>
 </div>
 
 <a class="skip-link" href="#main">Skip to content</a>
@@ -39,12 +54,13 @@
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
   <div class="nav__inner">
-    <a href="#top" class="nav__brand" aria-label="AscendDevs home">
+    <a href="#top" class="nav__brand" data-magnet aria-label="AscendDevs home">
       <img src="assets/logo/logo-icon-transparent.png" alt="" class="nav__mark" width="28" height="28">
-      <span>AscendDevs</span>
+      <span data-scramble>AscendDevs</span>
     </a>
 
-    <nav class="nav__links" aria-label="Primary">
+    <nav class="nav__links" id="navLinks" aria-label="Primary">
+      <span class="nav__pill" id="navPill" aria-hidden="true"></span>
       <a href="#work">Work</a>
       <a href="#services">Services</a>
       <a href="#process">Process</a>
@@ -52,7 +68,7 @@
       <a href="#faq">FAQ</a>
     </nav>
 
-    <a href="https://discord.gg/WDzhZU5xwJ" class="nav__cta" target="_blank" rel="noopener">
+    <a href="https://discord.gg/WDzhZU5xwJ" class="nav__cta" data-magnet target="_blank" rel="noopener">
       Let's Talk <span class="arrow">↗</span>
     </a>
 
@@ -60,16 +76,17 @@
       <span></span><span></span>
     </button>
   </div>
+  <div class="nav__progress" aria-hidden="true"><i id="scrollBar"></i></div>
 </header>
 
 <!-- Mobile menu -->
 <div class="mobile-menu" id="mobileMenu">
   <nav aria-label="Mobile">
-    <a href="#work">Work</a>
-    <a href="#services">Services</a>
-    <a href="#process">Process</a>
-    <a href="#about">About</a>
-    <a href="#faq">FAQ</a>
+    <a href="#work"><i>01</i>Work</a>
+    <a href="#services"><i>02</i>Services</a>
+    <a href="#process"><i>03</i>Process</a>
+    <a href="#about"><i>04</i>About</a>
+    <a href="#faq"><i>05</i>FAQ</a>
     <a href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" class="mobile-menu__cta">Join Discord ↗</a>
   </nav>
 </div>
@@ -79,36 +96,60 @@
   <!-- ============ HERO ============ -->
   <section class="hero" id="top">
     <div class="hero__field" aria-hidden="true">
-      <img src="assets/images/hero-visual.png" alt="" class="hero__visual">
-      <div class="hero__grid"></div>
+      <div class="hero__aurora hero__aurora--1"></div>
+      <div class="hero__aurora hero__aurora--2"></div>
+      <img src="assets/images/hero-visual.png" alt="" class="hero__visual" data-parallax="0.16">
+      <div class="hero__grid" data-parallax="0.05"></div>
       <canvas id="heroCanvas" class="hero__canvas"></canvas>
     </div>
 
     <div class="hero__content">
-      <p class="reveal-line hero__label">AscendDevs — Digital Agency</p>
-      <h1 class="hero__headline">
-        <span class="reveal-line">Build.</span>
-        <span class="reveal-line">Create.</span>
-        <span class="reveal-line">Ascend.</span>
-      </h1>
-      <p class="reveal-line hero__sub">Digital solutions for creators, communities, businesses, and ideas worth building.</p>
+      <p class="hero__label" data-stagger="1">
+        <span class="hero__ping"></span>Available for new projects
+      </p>
 
-      <div class="reveal-line hero__actions">
-        <a href="#services" class="btn btn--primary">Explore Services <span class="arrow arrow--down">↓</span></a>
-        <a href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" class="btn btn--ghost">Join Discord <span class="arrow">↗</span></a>
+      <h1 class="hero__headline">
+        <span class="line" data-stagger="2"><span class="word" data-scramble>Build.</span></span>
+        <span class="line" data-stagger="3"><span class="word" data-scramble>Create.</span></span>
+        <span class="line" data-stagger="4"><span class="word word--accent" data-scramble>Ascend.</span></span>
+      </h1>
+
+      <p class="hero__sub" data-stagger="5">Digital solutions for creators, communities, businesses, and ideas worth building.</p>
+
+      <div class="hero__actions" data-stagger="6">
+        <a href="#services" class="btn btn--primary" data-magnet>
+          <span class="btn__fill"></span>
+          <span class="btn__label">Explore Services <span class="arrow arrow--down">↓</span></span>
+        </a>
+        <a href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" class="btn btn--ghost" data-magnet>
+          <span class="btn__fill"></span>
+          <span class="btn__label">Join Discord <span class="arrow">↗</span></span>
+        </a>
       </div>
     </div>
 
-    <div class="hero__scroll" aria-hidden="true">
-      <span></span>
-    </div>
+    <div class="hero__scroll" aria-hidden="true"><span></span></div>
   </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee" id="marquee" aria-hidden="true">
+    <div class="marquee__track" id="marqueeTrack">
+      <span>Web Development</span><i>✦</i>
+      <span>Graphic Design</span><i>✦</i>
+      <span>Discord Bots</span><i>✦</i>
+      <span>Server Setup</span><i>✦</i>
+      <span>Minecraft</span><i>✦</i>
+      <span>Roblox</span><i>✦</i>
+      <span>Automation</span><i>✦</i>
+      <span>Custom Builds</span><i>✦</i>
+    </div>
+  </div>
 
   <!-- ============ INTRO ============ -->
   <section class="intro">
     <div class="intro__inner">
       <p class="eyebrow reveal">What we do</p>
-      <h2 class="intro__statement reveal">We turn ideas into digital experiences.</h2>
+      <h2 class="intro__statement" data-split>We turn ideas into digital experiences.</h2>
       <p class="intro__body reveal">AscendDevs brings development, design, community infrastructure, gaming services, and custom digital solutions together under one roof.</p>
     </div>
   </section>
@@ -117,61 +158,61 @@
   <section class="services" id="services">
     <div class="section-head">
       <p class="eyebrow reveal">01 — Services</p>
-      <h2 class="reveal">Everything you need to build, launch and grow.</h2>
+      <h2 data-split>Everything you need to build, launch and grow.</h2>
     </div>
 
-    <div class="service-list">
+    <div class="service-list" id="serviceList">
 
-      <a class="service-row reveal" href="#discord-cta">
+      <a class="service-row reveal" href="#discord-cta" data-peek="Web Development" data-tone="1">
         <span class="service-row__num">01</span>
         <span class="service-row__name">Web Development</span>
         <span class="service-row__desc">Custom websites and digital experiences built around your requirements.</span>
         <span class="service-row__arrow">↗</span>
       </a>
 
-      <a class="service-row reveal" href="#discord-cta">
+      <a class="service-row reveal" href="#discord-cta" data-peek="Graphic Design" data-tone="2">
         <span class="service-row__num">02</span>
         <span class="service-row__name">Graphic Design</span>
         <span class="service-row__desc">Logos, banners, thumbnails, promotional graphics, and branding.</span>
         <span class="service-row__arrow">↗</span>
       </a>
 
-      <a class="service-row reveal" href="#discord-cta">
+      <a class="service-row reveal" href="#discord-cta" data-peek="Custom Discord Bots" data-tone="3">
         <span class="service-row__num">03</span>
         <span class="service-row__name">Custom Discord Bots</span>
         <span class="service-row__desc">Bots, automation, commands, integrations, and server functionality.</span>
         <span class="service-row__arrow">↗</span>
       </a>
 
-      <a class="service-row reveal" href="#discord-cta">
+      <a class="service-row reveal" href="#discord-cta" data-peek="Discord Server Setup" data-tone="4">
         <span class="service-row__num">04</span>
         <span class="service-row__name">Discord Server Setup</span>
         <span class="service-row__desc">Structure, channels, roles, permissions, bots, and configuration.</span>
         <span class="service-row__arrow">↗</span>
       </a>
 
-      <a class="service-row reveal" href="#discord-cta">
+      <a class="service-row reveal" href="#discord-cta" data-peek="Minecraft Services" data-tone="5">
         <span class="service-row__num">05</span>
         <span class="service-row__name">Minecraft Services</span>
         <span class="service-row__desc">Development, configuration, customization, and server-related work.</span>
         <span class="service-row__arrow">↗</span>
       </a>
 
-      <a class="service-row reveal" href="#discord-cta">
+      <a class="service-row reveal" href="#discord-cta" data-peek="Roblox Services" data-tone="6">
         <span class="service-row__num">06</span>
         <span class="service-row__name">Roblox Services</span>
         <span class="service-row__desc">Afk Grinding, Resource Grinding, and Game Progression.</span>
         <span class="service-row__arrow">↗</span>
       </a>
 
-      <a class="service-row reveal" href="#discord-cta">
+      <a class="service-row reveal" href="#discord-cta" data-peek="Sponsorships" data-tone="7">
         <span class="service-row__num">07</span>
         <span class="service-row__name">Sponsorships &amp; Partnerships</span>
         <span class="service-row__desc">Business collaborations and sponsorship opportunities.</span>
         <span class="service-row__arrow">↗</span>
       </a>
 
-      <a class="service-row reveal" href="#discord-cta">
+      <a class="service-row reveal" href="#discord-cta" data-peek="Custom Requests" data-tone="8">
         <span class="service-row__num">08</span>
         <span class="service-row__name">Custom Requests</span>
         <span class="service-row__desc">Specialized projects and solutions outside the standard categories.</span>
@@ -184,14 +225,14 @@
   <!-- ============ CAPABILITIES ============ -->
   <section class="capabilities">
     <div class="capabilities__inner">
-      <h2 class="reveal">One agency.<br>Multiple disciplines.</h2>
-      <ul class="capabilities__list">
-        <li class="reveal">Development</li>
-        <li class="reveal">Design</li>
-        <li class="reveal">Discord</li>
-        <li class="reveal">Gaming</li>
-        <li class="reveal">Automation</li>
-        <li class="reveal">Custom Solutions</li>
+      <h2 data-split>One agency. Multiple disciplines.</h2>
+      <ul class="capabilities__list" id="capGrid">
+        <li class="reveal"><span>Development</span></li>
+        <li class="reveal"><span>Design</span></li>
+        <li class="reveal"><span>Discord</span></li>
+        <li class="reveal"><span>Gaming</span></li>
+        <li class="reveal"><span>Automation</span></li>
+        <li class="reveal"><span>Custom Solutions</span></li>
       </ul>
     </div>
   </section>
@@ -200,20 +241,16 @@
   <section class="work" id="work">
     <div class="section-head">
       <p class="eyebrow reveal">02 — Selected work</p>
-      <h2 class="reveal">Built for different ideas.</h2>
+      <h2 data-split>Built for different ideas.</h2>
       <p class="section-head__note reveal">Placeholder projects — structured so real AscendDevs work can replace them.</p>
     </div>
 
     <div class="work-grid">
-      <a class="work-item work-item--a reveal" href="#discord-cta">
+      <a class="work-item work-item--a reveal" href="#discord-cta" data-tilt data-cursor="Open">
         <div class="work-item__frame">
-          <div class="work-item__frame">
-       <img
-          src="assets/images/project-1.png"
-          alt="Discord Infrastructure"
-          class="work-item__image"
-  >
-      </div>
+          <img src="assets/images/project-1.png" alt="Web development project" class="work-item__image">
+          <span class="work-item__shine"></span>
+          <span class="work-item__badge">↗</span>
         </div>
         <div class="work-item__meta">
           <h3>Project One</h3>
@@ -221,15 +258,11 @@
         </div>
       </a>
 
-      <a class="work-item work-item--b reveal" href="#discord-cta">
+      <a class="work-item work-item--b reveal" href="#discord-cta" data-tilt data-cursor="Open">
         <div class="work-item__frame">
-          <div class="work-item__frame">
-      <img
-         src="assets/images/project-2.png"
-         alt="Discord Infrastructure"
-         class="work-item__image"
-  >
-      </div>
+          <img src="assets/images/project-2.png" alt="Discord infrastructure project" class="work-item__image">
+          <span class="work-item__shine"></span>
+          <span class="work-item__badge">↗</span>
         </div>
         <div class="work-item__meta">
           <h3>Project Two</h3>
@@ -237,15 +270,11 @@
         </div>
       </a>
 
-      <a class="work-item work-item--c reveal" href="#discord-cta">
+      <a class="work-item work-item--c reveal" href="#discord-cta" data-tilt data-cursor="Open">
         <div class="work-item__frame">
-          <div class="work-item__frame">
-      <img
-         src="assets/images/project-3.png"
-         alt="Discord Infrastructure"
-        class="work-item__image"
-  >
-     </div>
+          <img src="assets/images/project-3.png" alt="Thumbnail design project" class="work-item__image">
+          <span class="work-item__shine"></span>
+          <span class="work-item__badge">↗</span>
         </div>
         <div class="work-item__meta">
           <h3>Project Three</h3>
@@ -253,9 +282,11 @@
         </div>
       </a>
 
-      <a class="work-item work-item--d reveal" href="#discord-cta">
+      <a class="work-item work-item--d reveal" href="#discord-cta" data-tilt data-cursor="Open">
         <div class="work-item__frame">
-          <div class="work-item__placeholder" data-tone="4"></div>
+          <img src="assets/images/project-4.png" alt="Custom development project" class="work-item__image">
+          <span class="work-item__shine"></span>
+          <span class="work-item__badge">↗</span>
         </div>
         <div class="work-item__meta">
           <h3>Project Four</h3>
@@ -269,26 +300,32 @@
   <section class="process" id="process">
     <div class="section-head">
       <p class="eyebrow reveal">03 — Process</p>
-      <h2 class="reveal">Simple process. Serious execution.</h2>
+      <h2 data-split>Simple process. Serious execution.</h2>
     </div>
 
-    <div class="process-list">
+    <div class="process-list" id="processList">
+      <div class="process-rail" aria-hidden="true"><i id="processFill"></i></div>
+
       <div class="process-step reveal">
+        <span class="process-step__dot"></span>
         <span class="process-step__num">01</span>
         <h3>Discover</h3>
         <p>Tell us what you're building and what you need.</p>
       </div>
       <div class="process-step reveal">
+        <span class="process-step__dot"></span>
         <span class="process-step__num">02</span>
         <h3>Plan</h3>
         <p>We discuss requirements, scope, timeline, and approach.</p>
       </div>
       <div class="process-step reveal">
+        <span class="process-step__dot"></span>
         <span class="process-step__num">03</span>
         <h3>Build</h3>
         <p>We design, develop, configure, or customize the project.</p>
       </div>
       <div class="process-step reveal">
+        <span class="process-step__dot"></span>
         <span class="process-step__num">04</span>
         <h3>Deliver</h3>
         <p>We review the final work and deliver the completed project.</p>
@@ -301,11 +338,11 @@
     <div class="about__inner">
       <div class="about__text">
         <p class="eyebrow reveal">04 — About AscendDevs</p>
-        <h2 class="reveal">Built by two.<br>Driven by ideas.</h2>
+        <h2 data-split>Built by two. Driven by ideas.</h2>
         <p class="reveal">AscendDevs is a two-person digital agency focused on turning ideas into practical digital solutions. We combine development, design, community infrastructure, gaming services, and creative problem-solving to help people build better digital projects.</p>
       </div>
       <div class="about__figure reveal">
-        <span class="about__figure-num">02</span>
+        <span class="about__figure-num" data-count="2">0</span>
         <div class="about__orbit" aria-label="AscendDevs team"></div>
         <span class="about__figure-label">People</span>
       </div>
@@ -339,8 +376,8 @@
   <section class="feedback" id="feedback">
     <div class="section-head">
       <p class="eyebrow reveal">05 — Customer Feedback</p>
-      <h2 class="reveal">What our customers say.</h2>
-      <p class="section-head__note reveal"></p>
+      <h2 data-split>What our customers say.</h2>
+      <p class="section-head__note reveal">Hover a card to pause it and read the full review.</p>
     </div>
 
     <div class="feedback__viewport" aria-label="Customer reviews">
@@ -353,10 +390,11 @@
   <section class="discord-cta" id="discord-cta">
     <div class="discord-cta__glow" aria-hidden="true"></div>
     <div class="discord-cta__inner">
-      <h2 class="reveal">Let's build something.</h2>
+      <h2 data-split>Let's build something.</h2>
       <p class="reveal">Have an idea, need a service, or want to discuss a project? Join the AscendDevs Discord and talk directly with the team.</p>
-      <a href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" class="btn btn--primary reveal">
-        Join AscendDevs <span class="arrow">↗</span>
+      <a href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" class="btn btn--primary reveal" data-magnet>
+        <span class="btn__fill"></span>
+        <span class="btn__label">Join AscendDevs <span class="arrow">↗</span></span>
       </a>
     </div>
   </section>
@@ -365,54 +403,54 @@
   <section class="faq" id="faq">
     <div class="section-head">
       <p class="eyebrow reveal">06 — FAQ</p>
-      <h2 class="reveal">Questions, answered.</h2>
+      <h2 data-split>Questions, answered.</h2>
     </div>
 
-    <div class="accordion reveal">
-      <div class="accordion__item">
+    <div class="accordion">
+      <div class="accordion__item reveal">
         <button class="accordion__trigger" aria-expanded="false">
           <span>What services does AscendDevs offer?</span>
-          <span class="accordion__icon">+</span>
+          <span class="accordion__icon"><i></i><i></i></span>
         </button>
         <div class="accordion__panel">
           <p>Development, design, Discord services, Minecraft, Roblox, sponsorships/partnerships, and custom requests.</p>
         </div>
       </div>
 
-      <div class="accordion__item">
+      <div class="accordion__item reveal">
         <button class="accordion__trigger" aria-expanded="false">
           <span>How do I request a service?</span>
-          <span class="accordion__icon">+</span>
+          <span class="accordion__icon"><i></i><i></i></span>
         </button>
         <div class="accordion__panel">
           <p>Join the AscendDevs Discord and discuss your requirements with the team.</p>
         </div>
       </div>
 
-      <div class="accordion__item">
+      <div class="accordion__item reveal">
         <button class="accordion__trigger" aria-expanded="false">
           <span>Can I request a custom project?</span>
-          <span class="accordion__icon">+</span>
+          <span class="accordion__icon"><i></i><i></i></span>
         </button>
         <div class="accordion__panel">
           <p>Yes. Custom requests can be discussed with the team.</p>
         </div>
       </div>
 
-      <div class="accordion__item">
+      <div class="accordion__item reveal">
         <button class="accordion__trigger" aria-expanded="false">
           <span>Who can work with AscendDevs?</span>
-          <span class="accordion__icon">+</span>
+          <span class="accordion__icon"><i></i><i></i></span>
         </button>
         <div class="accordion__panel">
           <p>Creators, communities, businesses, developers, individuals, and gaming projects.</p>
         </div>
       </div>
 
-      <div class="accordion__item">
+      <div class="accordion__item reveal">
         <button class="accordion__trigger" aria-expanded="false">
           <span>How do I contact the team?</span>
-          <span class="accordion__icon">+</span>
+          <span class="accordion__icon"><i></i><i></i></span>
         </button>
         <div class="accordion__panel">
           <p>Through the official AscendDevs Discord server.</p>
@@ -425,10 +463,11 @@
   <section class="final-cta">
     <div class="final-cta__inner">
       <p class="eyebrow reveal">Start something</p>
-      <h2 class="reveal">Your idea deserves<br>a place to ascend.</h2>
+      <h2 data-split>Your idea deserves a place to ascend.</h2>
       <p class="final-cta__sub reveal">Let's build it.</p>
-      <a href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" class="btn btn--primary reveal">
-        Join Discord <span class="arrow">↗</span>
+      <a href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" class="btn btn--primary reveal" data-magnet>
+        <span class="btn__fill"></span>
+        <span class="btn__label">Join Discord <span class="arrow">↗</span></span>
       </a>
     </div>
   </section>
@@ -440,7 +479,7 @@
   <div class="footer__top">
     <a href="#top" class="footer__brand">
       <img src="assets/logo/logo-icon-transparent.png" alt="AscendDevs" width="32" height="32">
-      <span>AscendDevs</span>
+      <span data-scramble>AscendDevs</span>
     </a>
     <p>Digital agency &amp; services for ideas worth building.</p>
   </div>
@@ -453,12 +492,17 @@
     <a href="#faq">FAQ</a>
   </nav>
 
-  <a class="footer__discord" href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener">Join Discord ↗</a>
+  <a class="footer__discord" href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" data-magnet>Join Discord ↗</a>
 
   <div class="footer__bottom">
     <span>© 2026 AscendDevs. All rights reserved.</span>
   </div>
 </footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top">
+  <svg class="to-top__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <svg class="to-top__ring" viewBox="0 0 44 44" aria-hidden="true"><circle id="toTopRing" cx="22" cy="22" r="20.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+</button>
 
 <script src="js/main.js"></script>
 <script src="js/reviews.js"></script>
