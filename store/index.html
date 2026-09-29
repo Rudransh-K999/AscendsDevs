@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Store — AscendDevs</title>
+<meta name="description" content="The AscendDevs store — web development, design, Discord, Minecraft, Roblox and custom digital services, built to ship.">
+<meta name="theme-color" content="#0a0f13">
+
+<meta property="og:title" content="Store — AscendDevs">
+<meta property="og:description" content="Services built to ship. Development, design, Discord, Minecraft, Roblox and custom digital services.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="../assets/images/hero-visual.png">
+
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/icons/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/favicon-180.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/store.css">
+</head>
+
+<!-- data-root: how js/store.js finds assets/ from this page. Product image
+     paths in js/store.js are written relative to the site root. -->
+<body class="store-page" data-root="../">
+
+<!-- ============ LOADER ============ -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__bars"><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="loader__center">
+    <span class="loader__mark">AscendDevs</span>
+    <span class="loader__count" id="loaderCount">0</span>
+  </div>
+  <div class="loader__rail"><i id="loaderRail"></i></div>
+</div>
+
+<!-- Film grain -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Cursor -->
+<div class="cursor" id="cursor" aria-hidden="true">
+  <span class="cursor__dot"></span>
+  <span class="cursor__ring"><b class="cursor__label" id="cursorLabel"></b></span>
+</div>
+
+<!-- Ambient page glow -->
+<div class="store-bg" aria-hidden="true"></div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav" data-inert-on-modal>
+  <div class="nav__inner">
+    <a href="../" class="nav__brand" data-magnet aria-label="AscendDevs home">
+      <img src="../assets/logo/logo-icon-transparent.png" alt="" class="nav__mark" width="28" height="28">
+      <span data-scramble>AscendDevs</span>
+    </a>
+
+    <nav class="nav__links" id="navLinks" aria-label="Primary">
+      <span class="nav__pill" id="navPill" aria-hidden="true"></span>
+      <a href="../#work">Work</a>
+      <a href="../#services">Services</a>
+      <a href="../#process">Process</a>
+      <a href="../#about">About</a>
+      <a href="../#faq">FAQ</a>
+      <a href="#top" aria-current="page">Store</a>
+    </nav>
+
+    <a href="https://discord.gg/WDzhZU5xwJ" class="nav__cta" data-magnet target="_blank" rel="noopener">
+      Let's Talk <span class="arrow">↗</span>
+    </a>
+
+    <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div class="nav__progress" aria-hidden="true"><i id="scrollBar"></i></div>
+</header>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <nav aria-label="Mobile">
+    <a href="../#work"><i>01</i>Work</a>
+    <a href="../#services"><i>02</i>Services</a>
+    <a href="../#process"><i>03</i>Process</a>
+    <a href="../#about"><i>04</i>About</a>
+    <a href="../#faq"><i>05</i>FAQ</a>
+    <a href="#top" aria-current="page"><i>06</i>Store</a>
+    <a href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" class="mobile-menu__cta">Join Discord ↗</a>
+  </nav>
+</div>
+
+<main id="main" data-inert-on-modal>
+
+  <!-- ============ STORE HERO ============ -->
+  <section class="store-hero" id="top">
+    <div class="store-hero__field" aria-hidden="true">
+      <div class="hero__aurora hero__aurora--1"></div>
+      <div class="hero__aurora hero__aurora--2"></div>
+      <div class="hero__grid" data-parallax="0.05"></div>
+      <div class="store-hero__orbit"><i></i></div>
+    </div>
+
+    <div class="store-hero__inner">
+      <p class="eyebrow" data-stagger="1">01 — AscendDevs Store</p>
+
+      <h1 class="hero__headline store-hero__title">
+        <span class="line" data-stagger="2"><span class="word" data-scramble>Services</span></span>
+        <span class="line" data-stagger="3"><span class="word word--accent" data-scramble>built to ship.</span></span>
+      </h1>
+
+      <p class="store-hero__sub" data-stagger="4">Browse development, design, Discord, Minecraft, Roblox and custom digital services.</p>
+
+      <ul class="store-hero__meta" aria-label="Store highlights">
+        <li data-stagger="5"><span class="hero__ping" aria-hidden="true"></span><b data-store-count="products"></b>Digital services</li>
+        <li data-stagger="6"><span class="hero__ping" aria-hidden="true"></span>Custom builds</li>
+        <li data-stagger="7"><span class="hero__ping" aria-hidden="true"></span>Direct delivery</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ CATALOG ============ -->
+  <section class="catalog" id="catalog" aria-label="Services">
+    <div class="catalog__inner">
+
+      <div class="toolbar reveal">
+        <div class="filters" id="filters" role="group" aria-label="Filter services by category">
+          <span class="filters__pill" id="filtersPill" aria-hidden="true"></span>
+          <!-- filter buttons are generated from js/store.js -->
+        </div>
+
+        <form class="search" id="search" role="search" action="#" novalidate>
+          <svg class="search__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M20 20l-4.2-4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <input id="searchInput" type="search" name="q" placeholder="Search services..." aria-label="Search services" autocomplete="off" spellcheck="false">
+          <kbd class="search__key" aria-hidden="true">/</kbd>
+          <button type="button" class="search__clear" id="searchClear" aria-label="Clear search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </button>
+        </form>
+      </div>
+
+      <div class="catalog__status">
+        <p id="resultCount" role="status" aria-live="polite"></p>
+        <button type="button" class="catalog__reset" id="resetBtn" hidden>Reset</button>
+      </div>
+
+      <noscript><p class="store-noscript">The store list needs JavaScript. You can still reach the team on <a href="https://discord.gg/WDzhZU5xwJ">Discord</a>.</p></noscript>
+
+      <div class="product-grid" id="productGrid"></div>
+
+      <div class="empty" id="emptyState" hidden>
+        <span class="empty__num" aria-hidden="true">00</span>
+        <h2 class="empty__title">Nothing matches <span id="emptyQuery"></span></h2>
+        <p class="empty__text">Try a different word or category — or tell us what you need and we'll scope it.</p>
+        <div class="empty__actions">
+          <button type="button" class="btn btn--ghost btn--sm" id="emptyReset">
+            <span class="btn__fill"></span>
+            <span class="btn__label">Reset filters</span>
+          </button>
+          <a href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" class="btn btn--primary btn--sm">
+            <span class="btn__fill"></span>
+            <span class="btn__label">Request on Discord <span class="arrow">↗</span></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Custom request strip -->
+      <div class="store-cta">
+        <div class="store-cta__glow" aria-hidden="true"></div>
+        <div class="store-cta__text">
+          <p class="eyebrow reveal">Custom requests</p>
+          <h2 data-split>Need something that isn't listed?</h2>
+          <p class="reveal">Tell us what you're building. We'll scope it and quote it directly on Discord.</p>
+        </div>
+        <a href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" class="btn btn--primary reveal" data-magnet>
+          <span class="btn__fill"></span>
+          <span class="btn__label">Start a request <span class="arrow">↗</span></span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer" data-inert-on-modal>
+  <div class="footer__top">
+    <a href="../" class="footer__brand">
+      <img src="../assets/logo/logo-icon-transparent.png" alt="AscendDevs" width="32" height="32">
+      <span data-scramble>AscendDevs</span>
+    </a>
+    <p>Digital solutions for creators, communities, businesses, and ideas worth building.</p>
+  </div>
+
+  <nav class="footer__nav" aria-label="Footer">
+    <a href="../">Home</a>
+    <a href="../#work">Work</a>
+    <a href="../#services">Services</a>
+    <a href="../#process">Process</a>
+    <a href="../#about">About</a>
+    <a href="../#faq">FAQ</a>
+    <a href="#top">Store</a>
+  </nav>
+
+  <a class="footer__discord" href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" data-magnet>Join Discord ↗</a>
+
+  <div class="footer__bottom">
+    <span>© 2026 AscendDevs. All rights reserved.</span>
+    <span class="footer__status"><i aria-hidden="true"></i>ASCENDDEVS · DIGITAL SERVICES · 2026</span>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top" data-inert-on-modal>
+  <svg class="to-top__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <svg class="to-top__ring" viewBox="0 0 44 44" aria-hidden="true"><circle id="toTopRing" cx="22" cy="22" r="20.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+</button>
+
+<!-- ============ SERVICE DETAIL (filled from js/store.js) ============ -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
+  <div class="modal__backdrop" data-close data-cursor="Close"></div>
+
+  <div class="modal__frame">
+    <button type="button" class="modal__close" data-close aria-label="Close service details">
+      <span></span><span></span>
+    </button>
+
+    <div class="modal__panel" id="modalPanel" tabindex="-1">
+      <div class="modal__visual" id="modalVisual"></div>
+
+      <div class="modal__content">
+        <p class="modal__eyebrow modal__anim" id="modalEyebrow" style="--i:0"></p>
+        <h2 class="modal__title modal__anim" id="modalTitle" style="--i:1"></h2>
+        <p class="modal__desc modal__anim" id="modalDesc" style="--i:2"></p>
+
+        <div class="modal__facts modal__anim" style="--i:3">
+          <div class="modal__price" id="modalPriceWrap">
+            <span class="modal__label" id="modalPriceLabel"></span>
+            <span class="modal__price-row"><b id="modalPrice"></b><s id="modalOld"></s></span>
+          </div>
+          <div class="modal__delivery" id="modalDeliveryWrap">
+            <span class="modal__label">Delivery</span>
+            <b id="modalDelivery"></b>
+          </div>
+        </div>
+
+        <div class="modal__features modal__anim" id="modalFeaturesWrap" style="--i:4">
+          <span class="modal__label">What's included</span>
+          <ul id="modalFeatures"></ul>
+        </div>
+
+        <div class="modal__actions modal__anim" style="--i:5">
+          <a class="btn btn--primary" id="modalCta" href="https://discord.gg/WDzhZU5xwJ" data-magnet target="_blank" rel="noopener">
+            <span class="btn__fill"></span>
+            <span class="btn__label"><span id="modalCtaText">Order on Discord</span> <span class="arrow">↗</span></span>
+          </a>
+          <button type="button" class="btn btn--ghost" data-close>
+            <span class="btn__fill"></span>
+            <span class="btn__label">Close</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../js/main.js"></script>
+<script src="../js/store.js"></script>
+</body>
+</html>

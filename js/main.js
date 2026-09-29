@@ -276,7 +276,12 @@
     }
 
     var current = null;
-    var sections = links.map(function (a) { return $(a.getAttribute('href')); });
+    // Only in-page anchors ('#work') map to a section on this page. Links to
+    // another page ('../#work') have no section here and are skipped.
+    var sections = links.map(function (a) {
+      var h = a.getAttribute('href') || '';
+      return h.charAt(0) === '#' && h.length > 1 ? $(h) : null;
+    });
 
     if ('IntersectionObserver' in window) {
       var spy = new IntersectionObserver(function (entries) {
@@ -304,6 +309,17 @@
       });
     }
     window.addEventListener('resize', function () { if (current) movePill(current); });
+
+    // A link marked aria-current="page" (Store, on /store) is the resting pill.
+    var here = links.filter(function (a) { return a.getAttribute('aria-current') === 'page'; })[0];
+    if (here) {
+      current = here;
+      here.classList.add('is-current');
+      var place = function () { movePill(here); };
+      place();
+      window.addEventListener('load', place);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
+    }
   })();
 
   /* -----------------------------------------------------------
@@ -349,7 +365,7 @@
       cur.classList.toggle('is-down', pointer.down);
     });
 
-    var hot = 'a, button, .service-row, .work-item, .accordion__trigger, .capabilities__list li, .review-card, .orbit-member';
+    var hot = 'a, button, [data-cursor], .service-row, .work-item, .product, .accordion__trigger, .capabilities__list li, .review-card, .orbit-member';
 
     document.addEventListener('mouseover', function (e) {
       var t = e.target.closest(hot);
@@ -367,28 +383,29 @@
   /* -----------------------------------------------------------
      10. MAGNETIC ELEMENTS — buttons lean toward the cursor
   ----------------------------------------------------------- */
-  (function magnets() {
-    if (!fine || reduce) return;
-    $$('[data-magnet]').forEach(function (el) {
-      var tx = 0, ty = 0, x = 0, y = 0, active = false;
+  function bindMagnet(el) {
+    if (!fine || reduce || el.__magnet) return;
+    el.__magnet = true;
 
-      el.addEventListener('mouseenter', function () { active = true; });
-      el.addEventListener('mouseleave', function () { active = false; tx = 0; ty = 0; });
-      el.addEventListener('mousemove', function (e) {
-        var r = el.getBoundingClientRect();
-        var strength = clamp(r.width / 8, 8, 26);
-        tx = ((e.clientX - (r.left + r.width / 2)) / (r.width / 2)) * strength;
-        ty = ((e.clientY - (r.top + r.height / 2)) / (r.height / 2)) * strength * 0.7;
-      });
+    var tx = 0, ty = 0, x = 0, y = 0, active = false;
 
-      onFrame(function () {
-        if (!active && Math.abs(x) < 0.05 && Math.abs(y) < 0.05) return;
-        x = lerp(x, tx, 0.18);
-        y = lerp(y, ty, 0.18);
-        el.style.transform = 'translate3d(' + x.toFixed(2) + 'px,' + y.toFixed(2) + 'px,0)';
-      });
+    el.addEventListener('mouseenter', function () { active = true; });
+    el.addEventListener('mouseleave', function () { active = false; tx = 0; ty = 0; });
+    el.addEventListener('mousemove', function (e) {
+      var r = el.getBoundingClientRect();
+      var strength = clamp(r.width / 8, 8, 26);
+      tx = ((e.clientX - (r.left + r.width / 2)) / (r.width / 2)) * strength;
+      ty = ((e.clientY - (r.top + r.height / 2)) / (r.height / 2)) * strength * 0.7;
     });
-  })();
+
+    onFrame(function () {
+      if (!active && Math.abs(x) < 0.05 && Math.abs(y) < 0.05) return;
+      x = lerp(x, tx, 0.18);
+      y = lerp(y, ty, 0.18);
+      el.style.transform = 'translate3d(' + x.toFixed(2) + 'px,' + y.toFixed(2) + 'px,0)';
+    });
+  }
+  $$('[data-magnet]').forEach(bindMagnet);
 
   /* -----------------------------------------------------------
      11. SERVICE PEEK — a card trails the cursor over each row
@@ -771,5 +788,17 @@
       }).observe(canvas);
     }
   })();
+
+  /* -----------------------------------------------------------
+     PUBLIC API — lets other page scripts (js/store.js) reuse this
+     engine for elements they create after load.
+  ----------------------------------------------------------- */
+  window.AscendUI = {
+    reduce: reduce,
+    fine: fine,
+    onFrame: onFrame,
+    magnet: bindMagnet,
+    scrollTo: function (y) { smooth.to(y); }
+  };
 
 })();
