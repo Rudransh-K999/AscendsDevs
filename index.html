@@ -21,6 +21,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/style.css">
+<noscript>
+<style>
+  /* No JavaScript: skip the intro, show everything, open the FAQ answers */
+  .loader{ display: none !important; }
+  .reveal, [data-stagger], .hero__headline .line[data-stagger] .word, .split-word > i{ opacity: 1 !important; transform: none !important; }
+  .accordion__panel{ grid-template-rows: 1fr !important; }
+  .accordion__panel > p{ padding-bottom: 28px !important; opacity: 1 !important; transform: none !important; }
+  .accordion__icon{ display: none; }
+</style>
+</noscript>
 </head>
 <body>
 
@@ -68,9 +78,11 @@
       <a href="#faq">FAQ</a>
     </nav>
 
-    <a href="https://discord.gg/WDzhZU5xwJ" class="nav__cta" data-magnet target="_blank" rel="noopener">
-      Let's Talk <span class="arrow">↗</span>
-    </a>
+    <div data-contact="menu" data-label="Let's Talk" data-trigger="nav__cta" data-align="end">
+      <a href="https://discord.gg/WDzhZU5xwJ" class="nav__cta" data-magnet target="_blank" rel="noopener">
+        Let's Talk <span class="arrow">↗</span>
+      </a>
+    </div>
 
     <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
       <span></span><span></span>
@@ -87,7 +99,9 @@
     <a href="#process"><i>03</i>Process</a>
     <a href="#about"><i>04</i>About</a>
     <a href="#faq"><i>05</i>FAQ</a>
-    <a href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" class="mobile-menu__cta">Join Discord ↗</a>
+    <div data-contact="mobile">
+      <a href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" class="mobile-menu__cta">Join Discord ↗</a>
+    </div>
   </nav>
 </div>
 
@@ -121,10 +135,12 @@
           <span class="btn__fill"></span>
           <span class="btn__label">Visit Store <span class="arrow">↗</span></span>
         </a>
-        <a href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" class="btn btn--ghost" data-magnet>
-          <span class="btn__fill"></span>
-          <span class="btn__label">Join Discord <span class="arrow">↗</span></span>
-        </a>
+        <div data-contact="menu" data-label="Contact Us" data-trigger="btn btn--ghost" data-align="start">
+          <a href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" class="btn btn--ghost" data-magnet>
+            <span class="btn__fill"></span>
+            <span class="btn__label">Join Discord <span class="arrow">↗</span></span>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -391,12 +407,13 @@
     <div class="discord-cta__glow" aria-hidden="true"></div>
     <div class="discord-cta__inner">
       <h2 data-split>Let's build something.</h2>
-      <p class="reveal">Have an idea, need a service, or want to discuss a project? Join the AscendDevs Discord and talk directly with the team.</p>
-      <a href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" class="btn btn--primary reveal" data-magnet>
-        <span class="btn__fill"></span>
-        <span class="btn__label">Join AscendDevs <span class="arrow">↗</span></span>
-      </a>
+      <p class="reveal">Have an idea, need a service, or want to discuss a project? Reach out through Discord, Instagram, or email and talk directly with the AscendDevs team.</p>
     </div>
+    <ul class="contact-cards" data-contact="cards" aria-label="Contact AscendDevs">
+      <li class="reveal"><a class="contact-card" href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener"><span class="contact-card__body"><span class="contact-card__label">Discord</span><span class="contact-card__note">Join our community</span></span></a></li>
+      <li class="reveal"><a class="contact-card" href="https://instagram.com/ascenddevs" target="_blank" rel="noopener"><span class="contact-card__body"><span class="contact-card__label">Instagram</span><span class="contact-card__note">@ascenddevs</span></span></a></li>
+      <li class="reveal"><a class="contact-card" href="mailto:ascenddevs.business@gmail.com"><span class="contact-card__body"><span class="contact-card__label">Email</span><span class="contact-card__note">ascenddevs.business@gmail.com</span></span></a></li>
+    </ul>
   </section>
 
   <!-- ============ FAQ ============ -->
@@ -423,7 +440,7 @@
           <span class="accordion__icon"><i></i><i></i></span>
         </button>
         <div class="accordion__panel">
-          <p>Join the AscendDevs Discord and discuss your requirements with the team.</p>
+          <p>Reach out through our <a class="contact-inline" href="https://discord.gg/WDzhZU5xwJ" data-contact-link="discord">Discord</a>, <a class="contact-inline" href="https://instagram.com/ascenddevs" data-contact-link="instagram">Instagram</a>, or <a class="contact-inline" href="mailto:ascenddevs.business@gmail.com" data-contact-link="email">email</a> and tell us what you need. We'll discuss the requirements with you.</p>
         </div>
       </div>
 
@@ -453,7 +470,7 @@
           <span class="accordion__icon"><i></i><i></i></span>
         </button>
         <div class="accordion__panel">
-          <p>Through the official AscendDevs Discord server.</p>
+          <p>You can contact AscendDevs through <a class="contact-inline" href="https://discord.gg/WDzhZU5xwJ" data-contact-link="discord">Discord</a>, Instagram (<a class="contact-inline" href="https://instagram.com/ascenddevs" data-contact-link="instagram">@ascenddevs</a>), or email at <a class="contact-inline" href="mailto:ascenddevs.business@gmail.com" data-contact-link="email">ascenddevs.business@gmail.com</a>.</p>
         </div>
       </div>
     </div>
@@ -465,10 +482,11 @@
       <p class="eyebrow reveal">Start something</p>
       <h2 data-split>Your idea deserves a place to ascend.</h2>
       <p class="final-cta__sub reveal">Let's build it.</p>
-      <a href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" class="btn btn--primary reveal" data-magnet>
-        <span class="btn__fill"></span>
-        <span class="btn__label">Join Discord <span class="arrow">↗</span></span>
-      </a>
+      <div class="reveal contact-dock" data-contact="dock">
+        <a class="contact-dock__item" href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener"><span class="contact-dock__fill"></span><span class="contact-dock__label"><span>Discord</span></span></a>
+        <a class="contact-dock__item" href="https://instagram.com/ascenddevs" target="_blank" rel="noopener"><span class="contact-dock__fill"></span><span class="contact-dock__label"><span>Instagram</span></span></a>
+        <a class="contact-dock__item" href="mailto:ascenddevs.business@gmail.com"><span class="contact-dock__fill"></span><span class="contact-dock__label"><span>Email</span></span></a>
+      </div>
     </div>
   </section>
 
@@ -492,7 +510,11 @@
     <a href="#faq">FAQ</a>
   </nav>
 
-  <a class="footer__discord" href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" data-magnet>Join Discord ↗</a>
+  <div class="footer__contact" data-contact="list">
+    <a class="footer__contact-link" href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener"><span>Discord</span><span class="arrow" aria-hidden="true">↗</span></a>
+    <a class="footer__contact-link" href="https://instagram.com/ascenddevs" target="_blank" rel="noopener"><span>Instagram</span><span class="arrow" aria-hidden="true">↗</span></a>
+    <a class="footer__contact-link" href="mailto:ascenddevs.business@gmail.com"><span>Email</span><span class="arrow" aria-hidden="true">↗</span></a>
+  </div>
 
   <div class="footer__bottom">
     <span>© 2026 AscendDevs. All rights reserved.</span>
@@ -504,6 +526,7 @@
   <svg class="to-top__ring" viewBox="0 0 44 44" aria-hidden="true"><circle id="toTopRing" cx="22" cy="22" r="20.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
 </button>
 
+<script src="js/contact.js"></script>
 <script src="js/main.js"></script>
 <script src="js/reviews.js"></script>
 <script src="js/team.js"></script>

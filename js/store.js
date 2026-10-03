@@ -49,7 +49,8 @@
 
   var CONFIG = {
     // Where "Order" buttons go unless a product sets its own buttonLink.
-    discord: 'https://discord.gg/WDzhZU5xwJ',
+    // Comes from js/contact.js (the single source of truth); the literal is only a safety net.
+    discord: (window.AscendContact && window.AscendContact.href('discord')) || 'https://discord.gg/WDzhZU5xwJ',
 
     // Order of the filter pills. Any filter not listed here is added after
     // these, in the order it first appears. "OTHER" always goes last.

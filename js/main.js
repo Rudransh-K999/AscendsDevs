@@ -226,7 +226,7 @@
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
         var el = entry.target;
-        var group = el.closest('.service-list, .work-grid, .process-list, .principles__grid, .capabilities__list, .accordion');
+        var group = el.closest('.service-list, .work-grid, .process-list, .principles__grid, .capabilities__list, .accordion, .contact-cards');
         var delay = 0;
         if (group) {
           var sibs = $$('.reveal', group);

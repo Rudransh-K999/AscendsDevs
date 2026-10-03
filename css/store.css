@@ -696,3 +696,8 @@
   .product::after{ display: none; }
   .modal__anim{ opacity: 1; transform: none; }
 }
+
+
+/* contact options under the order button */
+.modal__alt{ padding-top: 6px; }
+.store-cta [data-contact="dock"]{ flex-shrink: 0; }

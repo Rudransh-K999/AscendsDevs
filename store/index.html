@@ -22,6 +22,16 @@
 
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/store.css">
+<noscript>
+<style>
+  /* No JavaScript: skip the intro, show everything, open the FAQ answers */
+  .loader{ display: none !important; }
+  .reveal, [data-stagger], .hero__headline .line[data-stagger] .word, .split-word > i{ opacity: 1 !important; transform: none !important; }
+  .accordion__panel{ grid-template-rows: 1fr !important; }
+  .accordion__panel > p{ padding-bottom: 28px !important; opacity: 1 !important; transform: none !important; }
+  .accordion__icon{ display: none; }
+</style>
+</noscript>
 </head>
 
 <!-- data-root: how js/store.js finds assets/ from this page. Product image
@@ -70,9 +80,11 @@
       <a href="#top" aria-current="page">Store</a>
     </nav>
 
-    <a href="https://discord.gg/WDzhZU5xwJ" class="nav__cta" data-magnet target="_blank" rel="noopener">
-      Let's Talk <span class="arrow">↗</span>
-    </a>
+    <div data-contact="menu" data-label="Let's Talk" data-trigger="nav__cta" data-align="end">
+      <a href="https://discord.gg/WDzhZU5xwJ" class="nav__cta" data-magnet target="_blank" rel="noopener">
+        Let's Talk <span class="arrow">↗</span>
+      </a>
+    </div>
 
     <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
       <span></span><span></span>
@@ -90,7 +102,9 @@
     <a href="../#about"><i>04</i>About</a>
     <a href="../#faq"><i>05</i>FAQ</a>
     <a href="#top" aria-current="page"><i>06</i>Store</a>
-    <a href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" class="mobile-menu__cta">Join Discord ↗</a>
+    <div data-contact="mobile">
+      <a href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" class="mobile-menu__cta">Join Discord ↗</a>
+    </div>
   </nav>
 </div>
 
@@ -148,7 +162,7 @@
         <button type="button" class="catalog__reset" id="resetBtn" hidden>Reset</button>
       </div>
 
-      <noscript><p class="store-noscript">The store list needs JavaScript. You can still reach the team on <a href="https://discord.gg/WDzhZU5xwJ">Discord</a>.</p></noscript>
+      <noscript><p class="store-noscript">The store list needs JavaScript. You can still reach the team on <a href="https://discord.gg/WDzhZU5xwJ">Discord</a>, <a href="https://instagram.com/ascenddevs">Instagram</a>, or <a href="mailto:ascenddevs.business@gmail.com">email</a>.</p></noscript>
 
       <div class="product-grid" id="productGrid"></div>
 
@@ -161,10 +175,12 @@
             <span class="btn__fill"></span>
             <span class="btn__label">Reset filters</span>
           </button>
-          <a href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" class="btn btn--primary btn--sm">
-            <span class="btn__fill"></span>
-            <span class="btn__label">Request on Discord <span class="arrow">↗</span></span>
-          </a>
+          <div data-contact="menu" data-label="Request a service" data-trigger="btn btn--primary btn--sm" data-align="center">
+            <a href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" class="btn btn--primary btn--sm">
+              <span class="btn__fill"></span>
+              <span class="btn__label">Request on Discord <span class="arrow">↗</span></span>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -174,12 +190,13 @@
         <div class="store-cta__text">
           <p class="eyebrow reveal">Custom requests</p>
           <h2 data-split>Need something that isn't listed?</h2>
-          <p class="reveal">Tell us what you're building. We'll scope it and quote it directly on Discord.</p>
+          <p class="reveal">Tell us what you're building. We'll scope it and quote it directly — on Discord, Instagram, or email.</p>
         </div>
-        <a href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" class="btn btn--primary reveal" data-magnet>
-          <span class="btn__fill"></span>
-          <span class="btn__label">Start a request <span class="arrow">↗</span></span>
-        </a>
+        <div class="reveal contact-dock" data-contact="dock">
+          <a class="contact-dock__item" href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener"><span class="contact-dock__fill"></span><span class="contact-dock__label"><span>Discord</span></span></a>
+          <a class="contact-dock__item" href="https://instagram.com/ascenddevs" target="_blank" rel="noopener"><span class="contact-dock__fill"></span><span class="contact-dock__label"><span>Instagram</span></span></a>
+          <a class="contact-dock__item" href="mailto:ascenddevs.business@gmail.com"><span class="contact-dock__fill"></span><span class="contact-dock__label"><span>Email</span></span></a>
+        </div>
       </div>
 
     </div>
@@ -207,7 +224,11 @@
     <a href="#top">Store</a>
   </nav>
 
-  <a class="footer__discord" href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener" data-magnet>Join Discord ↗</a>
+  <div class="footer__contact" data-contact="list">
+    <a class="footer__contact-link" href="https://discord.gg/WDzhZU5xwJ" target="_blank" rel="noopener"><span>Discord</span><span class="arrow" aria-hidden="true">↗</span></a>
+    <a class="footer__contact-link" href="https://instagram.com/ascenddevs" target="_blank" rel="noopener"><span>Instagram</span><span class="arrow" aria-hidden="true">↗</span></a>
+    <a class="footer__contact-link" href="mailto:ascenddevs.business@gmail.com"><span>Email</span><span class="arrow" aria-hidden="true">↗</span></a>
+  </div>
 
   <div class="footer__bottom">
     <span>© 2026 AscendDevs. All rights reserved.</span>
@@ -263,11 +284,18 @@
             <span class="btn__label">Close</span>
           </button>
         </div>
+
+        <div class="modal__alt modal__anim contact-alt" style="--i:6" data-contact="alt" data-exclude="discord">
+          <span class="contact-alt__lead">Or reach us on</span>
+          <a href="https://instagram.com/ascenddevs" target="_blank" rel="noopener"><span>Instagram</span></a>
+          <a href="mailto:ascenddevs.business@gmail.com"><span>Email</span></a>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
+<script src="../js/contact.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/store.js"></script>
 </body>
