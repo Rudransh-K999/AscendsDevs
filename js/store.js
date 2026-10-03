@@ -71,7 +71,7 @@
       name: 'Professional Website',
       description: 'Modern responsive website built around your requirements.',
       longDescription: 'A custom-built, fully responsive website designed around your brand, content and goals — from a focused landing page to a multi-section business site. Clean layouts, smooth interactions, and source files handed over at the end.',
-      price: '₹999',
+      price: '₹1999',
       priceLabel: 'Starting at',
       oldPrice: '',
       badge: '',
